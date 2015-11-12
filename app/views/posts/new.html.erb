@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <title>New Post</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+
+    <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+
+            <!-- Blog Post Content Column -->
+            <div class="col-lg-8">
+
+                <!-- Blog Post -->
+
+                <!-- Title -->
+                <%= form_for @post, url: posts_path do |f| %>
+                <div class="bold margin-top-20">
+                <h1>New Post</h1>
+                <hr>
+                </div>
+                <%= f.text_field :post_title, class: "form-control", placeholder: "Post Title" %>
+                <div class="bold margin-top-20">
+                </div>
+                
+                <div class="bold margin-top-20">
+                    <%= f.text_area :post_body, class: "form-control", placeholder: "Your post", rows: "10" %>                    
+                </div>
+                
+                <div class="bold margin-top-20">
+                    <%= f.text_field :post_image, class: "form-control", placeholder: "Blog image" %>
+                </div>
+ <!--                <textarea class="form-control" placeholder="Your post" rows="10"></textarea>
+ -->
+                <div class="margin-top-20">
+                    <%= f.submit 'Save Post', class: 'btn btn-primary' %>
+                </div>
+                <% end %>
+
+            </div>
+
+            <!-- Blog Sidebar Widgets Column -->
+            <div class="col-md-4">
+
+                <!-- Blog Search Well -->
+                <div class="well">
+                    <h4>Blog Search</h4>
+                    <div class="input-group">
+                        <input type="text" class="form-control">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">
+                                <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                        </span>
+                    </div>
+                    <!-- /.input-group -->
+                </div>
+
+                <!-- Side Widget Well -->
+                <div class="well">
+                    <h4>Post Tips</h4>
+                    <p>Write something interesting! :)</p>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; <%= current_user.first_name %> <%= current_user.last_name %> 2015</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
