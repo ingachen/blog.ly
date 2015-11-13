@@ -1,11 +1,14 @@
 class PostsController < ApplicationController
+
 before_action :authenticate_user!
+
 	def index
-		@posts = Post.all		
+		@posts = Post.paginate(:page => params[:page], :per_page => 2)
 	end
 
 	def show 
 		@post = Post.find(params[:id])
+		@comment = Comment.new( :post => @post)
 	end
 
 	def new 
